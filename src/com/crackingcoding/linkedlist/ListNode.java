@@ -24,5 +24,11 @@ public class ListNode {
 	public void setNext(ListNode next) {
 		this.next = next;
 	}
-	
+	public static void printList(ListNode head){
+		ListNode cur = head;
+		while(cur!=null){
+			System.out.print(cur.data);
+			cur = cur.next;
+		}
+	}
 }
