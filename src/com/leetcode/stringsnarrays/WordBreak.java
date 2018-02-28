@@ -1,0 +1,24 @@
+package com.leetcode.stringsnarrays;
+
+import java.util.List;
+
+public class WordBreak {
+	public boolean wordBreak(String s, List<String> wordDict) {
+        boolean[] t= new boolean[s.length()+1];
+        t[0] = true;
+        int s_len = s.length();
+        
+        for(int i=0; i< s.length();i++){
+            if(!t[i]) continue;
+        	for(String a:wordDict){
+        		int len = a.length();
+        		int end = i+len;
+        		if(end  > s_len){
+        			continue;
+        		}
+        		if(s.substring(i, end).equals(a)) t[end] = true;
+        	}
+        }
+		return t[s.length()]==true;
+    }
+}
